@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class DSATest {
 
     @Test
-    public void multiply() {
+    public void testMultiplyingInts() {
         int a = 2;
         int b = 3;
         int output;
