@@ -21,10 +21,7 @@ jobs:
 
     steps:
       - checkout
-
-      # Set Fabric Api Key with environment variables
-      - run: echo "fabricApiKey=$FABRIC_API_KEY" >> ~/repo/local.properties
-
+      - 
       # Download and cache dependencies
       - restore_cache:
           keys:
