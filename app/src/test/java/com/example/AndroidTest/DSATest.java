@@ -49,7 +49,8 @@ public class DSATest {
         int[] a = {1,3,5,8};
         int [] output = {1,9,25,64};
         DSA dsaTest = new DSA();
-        assertEquals(output,dsaTest.arraySquare(a));
+        assertArrayEquals(output,dsaTest.arraySquare(a));
+
     }
 
     @Test
@@ -57,7 +58,7 @@ public class DSATest {
         int[] a = {-3,5,11,244};
         int [] output = {9,25,121,5936};
         DSA dsaTest = new DSA();
-        assertEquals(output,dsaTest.arraySquare(a));
+        assertArrayEquals(output,dsaTest.arraySquare(a));
     }
 
     @Test
@@ -107,7 +108,7 @@ public class DSATest {
         a.add(9);
         a.add(8);
         a.add(5);
-        assertEquals(output, new DSA().traverseLinkedList(a));
+        assertArrayEquals(output, new DSA().traverseLinkedList(a));
     }
 
     @Test
@@ -122,7 +123,7 @@ public class DSATest {
         a.add(45699);
         a.add(10000);
         a.add(123456789);
-        assertEquals(output, new DSA().traverseLinkedList(a));
+        assertArrayEquals(output, new DSA().traverseLinkedList(a));
     }
 
     @Test
