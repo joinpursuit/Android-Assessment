@@ -122,6 +122,7 @@ public class DSATest {
         a.add(45699);
         a.add(10000);
         a.add(123456789);
+//        assertArrayEquals(output, new DSA().traverseLinkedList(a));
         assertEquals(output, new DSA().traverseLinkedList(a));
     }
 
