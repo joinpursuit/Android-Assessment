@@ -56,7 +56,7 @@ public class DSATest {
     @Test
     public void testSquareOfArrayNegative() {
         int[] a = {-3,5,11,244};
-        int [] output = {9,25,121,5936};
+        int [] output = {9,25,121,59536};
         DSA dsaTest = new DSA();
         assertArrayEquals(output,dsaTest.arraySquare(a));
     }
