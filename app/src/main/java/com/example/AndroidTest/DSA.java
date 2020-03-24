@@ -113,14 +113,18 @@ public class DSA {
     //     7   25
     //
 
+    private static int longestRoute = 1;
+
     public static int maxDepth(Node binaryNode) {
         if (binaryNode == null) return 0;
-            return routeLength(binaryNode, 1);
+             routeLength(binaryNode, 1);
+             return longestRoute;
     }
 
-    private static int routeLength(Node binaryNode, int total) {
-        if (binaryNode.left != null) routeLength(binaryNode.left, ++total);
-        if (binaryNode.right != null) routeLength(binaryNode.right, ++total);
-        return total;
+    private static void routeLength(Node binaryNode, int total) {
+        int routeLength = total + 1;
+        if (binaryNode.left != null) routeLength(binaryNode.left, routeLength);
+        if (binaryNode.right != null) routeLength(binaryNode.right, routeLength);
+        if (total > longestRoute) longestRoute = total;
     }
 }
