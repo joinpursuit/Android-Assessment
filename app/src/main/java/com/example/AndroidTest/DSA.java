@@ -1,4 +1,5 @@
 package com.example.AndroidTest;
+
 import java.util.*;
 
 public class DSA {
@@ -12,11 +13,10 @@ public class DSA {
     // Write a function that returns two numbers multiplied
     // ex: multiply(x: 5, y: 10) should return 50
 
-    public static int multiply (int a, int b) {
+    public static int multiply(int a, int b) {
 
-        return 0;
+        return a * b;
     }
-
 
 
 // Question 2
@@ -24,10 +24,12 @@ public class DSA {
     // ex: arraySquare(arr: [1,3,5,8]) should return [1,9,25,64]
 
 
-    public static int[] arraySquare (int[] arr) {
-        int test[] = {};
-
-        return  test;
+    public static int[] arraySquare(int[] arr) {
+        int[] test = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            test[i] = arr[i] * arr[i];
+        }
+        return test;
     }
 
     // Question 3
@@ -37,9 +39,15 @@ public class DSA {
     // ex: integerRange(4, 25) should return 19
 
 
-    public static int integerRange (int low, int high) {
-
-        return 0;
+    public static int integerRange(int low, int high) {
+        int counter = 0;
+        for (int i = low; i <= high; i++) {
+            String num = String.valueOf(i);
+            if (!num.contains("5")) {
+                counter++;
+            }
+        }
+        return counter;
     }
 
     // Question 4
@@ -50,9 +58,18 @@ public class DSA {
     // ex: inputSum([1,3,5,4,2], 2) should return false
 
 
-    public static boolean inputSum (int[] arr, int targetInt) {
-
-        return true;
+    public static boolean inputSum(int[] arr, int targetInt) {
+        HashSet<Integer> hashSet = new HashSet<>();
+        int sum = 0;
+        for (int i = 0; i < arr.length; ++i) {
+            Arrays.sort(arr);
+            int temp = targetInt - arr[i];
+            if (hashSet.contains(temp)) {
+                sum = temp + arr[i];
+            }
+            hashSet.add(arr[i]);
+        }
+        return sum == targetInt;
     }
 
     // Question 5
@@ -63,8 +80,15 @@ public class DSA {
 
 
     public static int recursiveSum(int[] input) {
+        int n = input.length;
+        return recursiveSumHelper(input, n);
+    }
 
-        return 0;
+    public static int recursiveSumHelper(int[] input, int end) {
+        if (end <= 0) {
+            return 0;
+        }
+        return recursiveSumHelper(input, end - 1) + input[end - 1];
     }
 
     // Question 6
@@ -73,10 +97,14 @@ public class DSA {
     // Assume the linked list starts with 1 as the root node and looks like: 1->9->8->5
     // ex: traverseLinkedList(firstNode) should return [1,9,8,5]
 
-    public static int[] traverseLinkedList (LinkedList<Integer> list) {
-        int test[] = {};
-
-        return  test;
+    public static int[] traverseLinkedList(LinkedList<Integer> list) {
+        Integer[] arr = new Integer[list.size()];
+        arr = list.toArray(arr);
+        int[] test = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            test[i] = arr[i];
+        }
+        return test;
     }
 
     // Question 7
@@ -93,9 +121,12 @@ public class DSA {
     //
 
 
-
     public static int maxDepth(Node binaryNode) {
-
-        return 0;
+        if (binaryNode == null) {
+            return 0;
+        }
+        int left = maxDepth(binaryNode.left);
+        int right = maxDepth(binaryNode.right);
+        return Math.max(left, right) + 1;
     }
 }
