@@ -13,8 +13,7 @@ public class DSA {
     // ex: multiply(x: 5, y: 10) should return 50
 
     public static int multiply (int a, int b) {
-
-        return 0;
+        return a*b;
     }
 
 
@@ -25,9 +24,12 @@ public class DSA {
 
 
     public static int[] arraySquare (int[] arr) {
-        int test[] = {};
-
-        return  test;
+        int test[] = arr;
+        for (int i = 0; i < arr.length; i++) {
+            int currentValue = arr[i];
+            test[i] = currentValue * currentValue;
+        }
+        return test;
     }
 
     // Question 3
@@ -38,8 +40,14 @@ public class DSA {
 
 
     public static int integerRange (int low, int high) {
-
-        return 0;
+        int count = 0;
+        while (low <= high) {
+            if(low / 10 != 5 && low % 10 != 5) {
+                count++;
+            }
+            low++;
+        }
+        return count;
     }
 
     // Question 4
@@ -51,8 +59,13 @@ public class DSA {
 
 
     public static boolean inputSum (int[] arr, int targetInt) {
-
-        return true;
+        if(arr == null || arr.length < 2) return false;
+        for(int i = 0; i < arr.length - 1; i++){
+            for(int j = i + 1; j < arr.length; j++){
+                if(arr[i] + arr[j] == targetInt) return true;
+            }
+        }
+        return false;
     }
 
     // Question 5
@@ -63,8 +76,8 @@ public class DSA {
 
 
     public static int recursiveSum(int[] input) {
-
-        return 0;
+        if(input.length == 1) return input[0];
+        return input[0] + recursiveSum(Arrays.copyOfRange(input, 1, input.length));
     }
 
     // Question 6
@@ -74,9 +87,14 @@ public class DSA {
     // ex: traverseLinkedList(firstNode) should return [1,9,8,5]
 
     public static int[] traverseLinkedList (LinkedList<Integer> list) {
-        int test[] = {};
-
-        return  test;
+        int test[] = new int[list.size()];
+        Iterator<Integer> iterator = list.iterator();
+        int i = 0;
+        while(iterator.hasNext()){
+            test[i] = iterator.next();
+            i++;
+        }
+        return test;
     }
 
     // Question 7
@@ -95,7 +113,7 @@ public class DSA {
 
 
     public static int maxDepth(Node binaryNode) {
-
-        return 0;
+        if(binaryNode == null) return 0;
+        return (1 + Math.max(maxDepth(binaryNode.left), maxDepth(binaryNode.right)));
     }
 }
