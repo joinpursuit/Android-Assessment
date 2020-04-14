@@ -28,7 +28,7 @@ public class DSA {
 
 
     public static int[] arraySquare (int[] arr) {
-        int test[] = {};
+        int test[] = new int [arr.length];
 
         for (int i =0; i < arr.length; i++){
             test [i] = (int) Math.pow(arr[i], 2);
@@ -99,7 +99,7 @@ public class DSA {
     // ex: traverseLinkedList(firstNode) should return [1,9,8,5]
 
     public static int[] traverseLinkedList (LinkedList<Integer> list) {
-        int test[] = {};
+        int test[] = new int[list.size()];
 
         for(int i = 0; i < list.size(); i++){
             test[i] = list.get(i);
