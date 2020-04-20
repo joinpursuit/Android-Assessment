@@ -1,4 +1,5 @@
 package com.example.AndroidTest;
+//Asia Gibson 3/28/2020
 import java.util.*;
 
 public class DSA {
@@ -13,8 +14,10 @@ public class DSA {
     // ex: multiply(x: 5, y: 10) should return 50
 
     public static int multiply (int a, int b) {
+        int product = a *b;
 
-        return 0;
+        return product;
+
     }
 
 
@@ -25,7 +28,12 @@ public class DSA {
 
 
     public static int[] arraySquare (int[] arr) {
-        int test[] = {};
+        int test[] = new int [arr.length];
+
+        for (int i =0; i < arr.length; i++){
+            test [i] = (int) Math.pow(arr[i], 2);
+
+        }
 
         return  test;
     }
@@ -38,8 +46,14 @@ public class DSA {
 
 
     public static int integerRange (int low, int high) {
-
-        return 0;
+        int count =0;
+        int range = high - (low-1);
+        for(int i = low; i <= high; i++){
+            if(Integer.toString(i).contains("5")){
+                count++;
+            }
+        }
+        return range - count ;
     }
 
     // Question 4
@@ -51,8 +65,15 @@ public class DSA {
 
 
     public static boolean inputSum (int[] arr, int targetInt) {
+        for(int i = 0; i < arr.length;i++){
+            for(int j = 1; j < arr.length;j++){
 
-        return true;
+                if((arr[i] + arr[j]) == targetInt){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     // Question 5
@@ -63,8 +84,12 @@ public class DSA {
 
 
     public static int recursiveSum(int[] input) {
+        int len = input.length;
 
-        return 0;
+        if(len == 1){
+            return input[0];
+        }
+        return (recursiveSum(Arrays.copyOfRange(input,1,len))) + input[0];
     }
 
     // Question 6
@@ -74,7 +99,11 @@ public class DSA {
     // ex: traverseLinkedList(firstNode) should return [1,9,8,5]
 
     public static int[] traverseLinkedList (LinkedList<Integer> list) {
-        int test[] = {};
+        int test[] = new int[list.size()];
+
+        for(int i = 0; i < list.size(); i++){
+            test[i] = list.get(i);
+        }
 
         return  test;
     }
@@ -96,6 +125,17 @@ public class DSA {
 
     public static int maxDepth(Node binaryNode) {
 
-        return 0;
+        if(binaryNode == null){
+            return 0;
+        }else {
+
+            int left = maxDepth(binaryNode.left);
+            int right = maxDepth(binaryNode.right);
+
+            if (right > left) {
+                return (right + 1);
+            }
+
+            return (left +1); }
     }
 }
